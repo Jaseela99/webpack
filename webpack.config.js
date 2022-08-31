@@ -4,8 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BundleAnalyzerPlugin=require("webpack-bundle-analyzer").BundleAnalyzerPlugin
 
 module.exports={
+  //mode 
     mode:'development',
-    //entry is the input file
+    // input file
     entry:{
        bundle: path.resolve(__dirname,"src/index.js")},
     //output
@@ -15,6 +16,7 @@ module.exports={
         clean:true,
         assetModuleFilename:'[name][ext]'
     },
+    //dependency graph
     devtool:'source-map',
     devServer: {
         static: {
@@ -29,7 +31,9 @@ module.exports={
     module:{
         rules:[
             {
+              //type
             test:/\.scss/,
+            //loaders
             use:['style-loader','css-loader','sass-loader'],
         },
         {
